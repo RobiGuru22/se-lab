@@ -13,8 +13,8 @@ public class TorpedoStore {
   private double FAILURE_RATE = 0.0; //NOSONAR
 
   private int torpedoCount = 0;
-
   private Random generator = new Random();
+  // By Norbi: nem jó ez itt most, túl szellős a kód
 
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
@@ -33,6 +33,7 @@ public class TorpedoStore {
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
       throw new IllegalArgumentException("numberOfTorpedos");
+      // By Norbi: Smart move
     }
 
     boolean success = false;
@@ -44,6 +45,7 @@ public class TorpedoStore {
     if (r >= FAILURE_RATE) {
       // successful firing
       this.torpedoCount -= numberOfTorpedos;
+      // By Norbi: most jó ez itt most
       success = true;
     } else {
       // simulated failure
